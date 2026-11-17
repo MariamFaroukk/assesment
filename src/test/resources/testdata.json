@@ -1,0 +1,12 @@
+{
+  "addProductToCart": [
+    {
+      "category": "accessories",
+      "subcategory": "shoes",
+      "productName": "Dorian Perforated Oxford",
+      "color": "Black",
+      "quantity": 1,
+      "price": 410.00
+    }
+  ]
+}

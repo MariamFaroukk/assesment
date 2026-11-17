@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Tealium Ecommerce Demo Test Suite" verbose="2">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+        <listener class-name="com.listeners.AllureTestListener"/>
+    </listeners>
+
+    <test name="User Registration Tests">
+        <classes>
+            <class name="com.tests.RegistrationTest"/>
+        </classes>
+    </test>
+
+    <test name="Wishlist Tests">
+        <classes>
+            <class name="com.tests.WishlistTest"/>
+        </classes>
+    </test>
+
+    <test name="Add Product to Cart Tests">
+        <classes>
+            <class name="com.tests.AddProductToCartTest"/>
+        </classes>
+    </test>
+
+    <test name="Invalid Login Tests">
+        <classes>
+            <class name="com.tests.InvalidLoginTest"/>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,11 @@
+{
+  "successMessages": {
+    "registrationSuccess": "Thank you for registering"
+  },
+  "errorMessages": {
+    "invalidLogin": "Invalid login or password."
+  },
+  "validationMessages": {
+    "invalidEmail": "Please include an '@' in the email address. '{email}' is missing an '@'."
+  }
+}
