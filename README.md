@@ -2,14 +2,14 @@
 
 This project automates test cases using Selenium WebDriver, TestNG framework, and Allure Reports for comprehensive test reporting.
 
-## Quick Start
+## How to Run Tests
 
 ```bash
 # Run all tests
 mvn clean test
 
 # Run specific test
-mvn clean test -Dtest=RegistrationTest
+mvn clean test -Dtest=TestClassName
 
 # Run in headless mode
 mvn clean test -Dheadless=true
@@ -39,8 +39,7 @@ The Allure report includes:
 - **Test Results**: Detailed results for each test case
 - **Screenshots**: Automatic failure screenshots attached to failed tests
 - **Duration**: Test execution time for each test
-- **Test Descriptions**: Clear descriptions of what each test validates
-- **Statistics**: Pass/fail rates and trends
+- **Statistics**: Pass/fail rates
 
 ### Report Location
 
