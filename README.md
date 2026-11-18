@@ -89,7 +89,6 @@ assesment/
 │           └── testdata.json                   # Test data
 ├── testng.xml                                   # TestNG configuration with Allure listeners
 ├── pom.xml                                      # Maven configuration with Allure plugin
-├── run_tests.bat                                # Windows script to run tests
 ├── AUTOMATION_GUIDELINES.md                     # Conventions & patterns
 └── README.md                                    # This file
 ```

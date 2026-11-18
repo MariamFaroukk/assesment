@@ -2,7 +2,6 @@ package com.tests;
 
 import com.base.BaseTest;
 import com.pages.DashboardPage;
-import com.pages.DashboardPage.AccountOption;
 import com.pages.RegistrationPage;
 import com.utils.TestDataGenerator;
 import org.testng.annotations.BeforeMethod;
@@ -31,11 +30,9 @@ public class RegistrationTest extends BaseTest {
     @Test(description = "Positive - Validate that a new user can successfully register an account with generated fake data",
           dataProvider = "validUserData")
     public void testUserRegistrationWithValidDetails(String firstName, String lastName, String email, String password) {
-        // Perform registration with generated data
-        dashboardPage.navigateTo(AccountOption.REGISTER);
-        registrationPage.registerNewUser(firstName, lastName, email, password, password);
 
-        // Assert registration success
+        dashboardPage.navigateTo(DashboardPage.REGISTER);
+        registrationPage.registerNewUser(firstName, lastName, email, password, password);
         dashboardPage.assertRegistrationSuccess();
     }
 
@@ -51,11 +48,9 @@ public class RegistrationTest extends BaseTest {
     @Test(description = "Negative - Validate that registration fails when an invalid email format is provided",
           dataProvider = "invalidEmailUserData")
     public void testUserRegistrationWithInvalidEmail(String firstName, String lastName, String invalidEmail, String password) {
-        // Attempt registration with an invalid email format
-        dashboardPage.navigateTo(AccountOption.REGISTER);
-        registrationPage.registerNewUser(firstName, lastName, invalidEmail, password, password);
 
-        // Assert registration failed
+        dashboardPage.navigateTo(DashboardPage.REGISTER);
+        registrationPage.registerNewUser(firstName, lastName, invalidEmail, password, password);
         registrationPage.assertRegistrationFailed(invalidEmail);
     }
 }

@@ -23,24 +23,16 @@ public class DashboardPage extends BasePage {
 
     private static final String PRODUCT_ITEM_XPATH = "(//li[@class='item last'])[%d]";
 
-    public enum AccountOption {
-        LOGIN("Log In"),
-        REGISTER("Register");
-
-        private final String text;
-
-        AccountOption(String text) {
-            this.text = text;
-        }
-    }
+    public static final String LOGIN = "Log In";
+    public static final String REGISTER = "Register";
 
     public DashboardPage(WebDriver driver) {
         super(driver);
     }
 
-    public void navigateTo(AccountOption option) {
+    public void navigateTo(String accountOption) {
         click(ACCOUNT_MENU);
-        click(By.xpath(String.format(ACCOUNT_OPTION_XPATH, option.text)));
+        click(By.xpath(String.format(ACCOUNT_OPTION_XPATH, accountOption)));
     }
 
     public void navigateToShoes() {

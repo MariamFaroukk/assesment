@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -18,11 +17,9 @@ public class ProductDetailPage extends BasePage {
 
     private static final By PRODUCT_TITLE = By.className("h1");
     private static final By PRODUCT_PRICE = By.className("price");
-    // The page has two Add to Cart buttons; only the one submitting the product form is visible
     private static final By ADD_TO_CART_BUTTON = By.xpath("//button[@title='Add to Cart' and contains(@onclick,'productAddToCartForm')]");
     private static final By QUANTITY_INPUT = By.xpath("//input[@title='Qty']");
     private static final By COLOR_OPTION = By.xpath("//li[@id='option20']/a");
-    // Size swatch element id -> shoe size
     private static final Map<String, String> SIZE_OPTIONS = new LinkedHashMap<>();
 
     static {
@@ -32,8 +29,6 @@ public class ProductDetailPage extends BasePage {
         SIZE_OPTIONS.put("option97", "11");
         SIZE_OPTIONS.put("option96", "12");
     }
-
-    private final Random random = new Random();
 
     public ProductDetailPage(WebDriver driver) {
         super(driver);
@@ -53,7 +48,7 @@ public class ProductDetailPage extends BasePage {
 
     public String selectRandomSize() {
         List<String> optionIds = new ArrayList<>(SIZE_OPTIONS.keySet());
-        String optionId = optionIds.get(random.nextInt(optionIds.size()));
+        String optionId = optionIds.get((int) (Math.random() * optionIds.size()));
         click(By.xpath("//li[@id='" + optionId + "']/a"));
         return SIZE_OPTIONS.get(optionId);
     }

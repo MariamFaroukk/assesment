@@ -30,22 +30,14 @@ public class AddProductToCartTest extends BaseTest {
         return JsonDataReader.getAddProductToCartData();
     }
 
-    @Test(description = "End-to-End: Accessories > Shoes > Dorian Perforated Oxford, " +
-                        "select Color Black and random Size, add to cart and verify cart details",
+    @Test(description = " Add An Accessory (Shoe) to Cart with Color Avilable and random Size and Assert on Aceesory Details",
           dataProvider = "addProductToCartData")
     public void testAddProductToCart(String productName, String color, int quantity, double price) {
-        // Step 1: Accessories > Shoes, then open the product
         dashboardPage.navigateToShoes();
         accessoriesPage.assertShoesCategoryLoaded();
         accessoriesPage.selectProductByName(productName);
-
-        // Step 2: Verify product details
         productDetailPage.assertProductDetails(productName, price);
-
-        // Step 3: Select Black, a random size, and add to cart
         String selectedSize = productDetailPage.addProductToCart(quantity);
-
-        // Step 4: Verify the product was added to the shopping cart
         shoppingCartPage.assertProductAddedToShoppingCart(productName, color, selectedSize, price, quantity);
     }
 }

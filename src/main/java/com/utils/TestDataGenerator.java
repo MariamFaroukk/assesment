@@ -8,23 +8,14 @@ public class TestDataGenerator {
 
     private static final Faker faker = new Faker(new Locale("en-US"));
 
-    /**
-     * Generates a fake first name
-     */
     public static String generateFirstName() {
         return faker.name().firstName();
     }
 
-    /**
-     * Generates a fake last name
-     */
     public static String generateLastName() {
         return faker.name().lastName();
     }
 
-    /**
-     * Generates a random 12-character password
-     */
     public static String generateRandomPassword() {
         String password = "";
         for (int i = 0; i < 12; i++) {
@@ -33,9 +24,6 @@ public class TestDataGenerator {
         return password;
     }
 
-    /**
-     * Generates complete user registration data
-     */
     public static class UserData {
         public String firstName;
         public String lastName;
@@ -60,9 +48,6 @@ public class TestDataGenerator {
         }
     }
 
-    /**
-     * Generates complete user registration data with fake information
-     */
     public static UserData generateUserData() {
         String firstName = generateFirstName();
         String lastName = generateLastName();

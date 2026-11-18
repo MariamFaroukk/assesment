@@ -2,7 +2,6 @@ package com.tests;
 
 import com.base.BaseTest;
 import com.pages.DashboardPage;
-import com.pages.DashboardPage.AccountOption;
 import com.pages.LoginPage;
 import com.utils.JsonDataReader;
 import com.utils.TestDataGenerator;
@@ -32,13 +31,9 @@ public class InvalidLoginTest extends BaseTest {
     @Test(description = "Negative - Validate that an error message is shown when attempting to log in with valid credentials not registered in the system",
           dataProvider = "validUserData")
     public void testLoginWithInvalidCredentials(String email, String password) {
-        dashboardPage.navigateTo(AccountOption.LOGIN);
+        dashboardPage.navigateTo(DashboardPage.LOGIN);
         loginPage.assertNavigationLoginPage();
-        System.out.println("Testing invalid login with email: " + email + " and password: " + password);
-
-        // Attempt login with valid credentials but not registered in the system
         loginPage.loginWithCredentials(email, password);
-
         loginPage.assertFailedLogin(JsonDataReader.getErrorMessage("invalidLogin"));
     }
 }

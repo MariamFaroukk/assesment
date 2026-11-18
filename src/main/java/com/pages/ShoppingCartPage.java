@@ -49,7 +49,6 @@ public class ShoppingCartPage extends BasePage {
         return getText(CART_ITEM_TOTAL);
     }
 
-    // item-options dd elements have no layout box, so read them by presence rather than visibility
     private String getItemOption(By locator) {
         return wait.until(ExpectedConditions.presenceOfElementLocated(locator)).getAttribute("textContent").trim();
     }
